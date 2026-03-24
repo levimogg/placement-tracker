@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 Corps Member Tracker 2026–2027 — Teach For America Washington</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #00225A; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .login-card { background: white; border-radius: 16px; padding: 48px 40px; width: 380px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .login-logo { height: 24px; margin-bottom: 8px; }
+    .login-title { font-size: 20px; font-weight: 700; color: #00225A; margin-bottom: 4px; }
+    .login-sub { font-size: 12px; color: #8B8A86; margin-bottom: 32px; font-weight: 500; }
+    .login-label { display: block; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: #8B8A86; margin-bottom: 6px; }
+    .login-input { width: 100%; padding: 14px 16px; font-size: 18px; font-family: 'Poppins', sans-serif; border: 2px solid #DDE1E8; border-radius: 10px; text-align: center; letter-spacing: 8px; font-weight: 700; color: #00225A; outline: none; transition: border-color 0.2s; }
+    .login-input:focus { border-color: #76CEE1; }
+    .login-input.error { border-color: #EF322D; animation: shake 0.4s; }
+    .login-btn { width: 100%; padding: 14px; font-size: 14px; font-weight: 600; font-family: 'Poppins', sans-serif; background: #00225A; color: #FFEED4; border: none; border-radius: 10px; cursor: pointer; margin-top: 16px; transition: background 0.15s; letter-spacing: 0.3px; }
+    .login-btn:hover { background: #0a3a7a; }
+    .login-error { color: #EF322D; font-size: 12px; font-weight: 500; margin-top: 10px; min-height: 18px; }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <img src="./tfa-logo-navy.svg" alt="Teach For America" class="login-logo" onerror="this.style.display='none'">
+    <div class="login-title">Corps Member Tracker 2026–2027</div>
+    <div class="login-sub">2025–2026 Placement Season</div>
+    <label class="login-label">Access Code</label>
+    <input type="text" class="login-input" id="codeInput" maxlength="5" inputmode="numeric" autofocus>
+    <button class="login-btn" id="loginBtn">Enter</button>
+    <div class="login-error" id="loginError"></div>
+  </div>
+  <script type="module">
+    let K = '';
+    try { const m = await import('./config.js'); K = m.default.ACCESS_CODE; } catch(e) { K = ''; }
+    document.getElementById('loginBtn').addEventListener('click', check);
+    document.getElementById('codeInput').addEventListener('keydown', e => { if(e.key==='Enter') check(); });
+    function check() {
+      const v = document.getElementById('codeInput').value;
+      if (v === K) {
+        sessionStorage.setItem('auth','1');
+        window.location.href = 'app.html';
+      } else {
+        document.getElementById('codeInput').classList.add('error');
+        document.getElementById('loginError').textContent = 'Invalid code';
+        setTimeout(() => document.getElementById('codeInput').classList.remove('error'), 400);
+      }
+    }
+    // Only redirect if on this page (not app.html)
+    if (sessionStorage.getItem('auth')==='1' && window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) window.location.replace('app.html');
+  </script>
+</body>
+</html>

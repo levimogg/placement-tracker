@@ -1,0 +1,21 @@
+{
+  "name": "placement-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "node-fetch": "^2.7.0",
+    "puppeteer-core": "^24.40.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^24.5.0"
+  }
+}

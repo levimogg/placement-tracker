@@ -1,0 +1,444 @@
+[
+  {
+    "timestamp": "2026-03-23T23:03:39.004Z",
+    "duration": "4.3s",
+    "totalPostings": 282,
+    "certificatedPostings": 54,
+    "newPostings": 282,
+    "expiredPostings": 0,
+    "byDistrict": {
+      "Auburn": {
+        "total": 59,
+        "certificated": 20
+      },
+      "Renton": {
+        "total": 68,
+        "certificated": 8
+      },
+      "Federal Way": {
+        "total": 117,
+        "certificated": 18
+      },
+      "Fife": {
+        "total": 0,
+        "certificated": 0
+      },
+      "Tacoma": {
+        "total": 0,
+        "certificated": 0
+      },
+      "Franklin Pierce": {
+        "total": 38,
+        "certificated": 8
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-23T23:22:18.868Z",
+    "duration": "8.9s",
+    "totalPostings": 292,
+    "certificatedPostings": 55,
+    "newPostings": 10,
+    "expiredPostings": 0,
+    "byDistrict": {
+      "Auburn": {
+        "total": 59,
+        "certificated": 20
+      },
+      "Renton": {
+        "total": 68,
+        "certificated": 8
+      },
+      "Federal Way": {
+        "total": 117,
+        "certificated": 18
+      },
+      "Fife": {
+        "total": 0,
+        "certificated": 0
+      },
+      "Tacoma": {
+        "total": 10,
+        "certificated": 1
+      },
+      "Franklin Pierce": {
+        "total": 38,
+        "certificated": 8
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-23T23:26:48.169Z",
+    "duration": "6.4s",
+    "totalPostings": 304,
+    "certificatedPostings": 63,
+    "newPostings": 13,
+    "expiredPostings": 1,
+    "byDistrict": {
+      "Auburn": {
+        "total": 59,
+        "certificated": 20
+      },
+      "Renton": {
+        "total": 68,
+        "certificated": 8
+      },
+      "Federal Way": {
+        "total": 117,
+        "certificated": 18
+      },
+      "Fife": {
+        "total": 12,
+        "certificated": 9
+      },
+      "Tacoma": {
+        "total": 10,
+        "certificated": 0
+      },
+      "Franklin Pierce": {
+        "total": 38,
+        "certificated": 8
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-23T23:30:34.325Z",
+    "duration": "8.8s",
+    "totalPostings": 304,
+    "certificatedPostings": 63,
+    "newPostings": 0,
+    "expiredPostings": 0,
+    "byDistrict": {
+      "Auburn": {
+        "total": 59,
+        "certificated": 20
+      },
+      "Renton": {
+        "total": 68,
+        "certificated": 8
+      },
+      "Federal Way": {
+        "total": 117,
+        "certificated": 18
+      },
+      "Fife": {
+        "total": 12,
+        "certificated": 9
+      },
+      "Tacoma": {
+        "total": 10,
+        "certificated": 0
+      },
+      "Franklin Pierce": {
+        "total": 38,
+        "certificated": 8
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-23T23:52:43.492Z",
+    "duration": "34.9s",
+    "totalPostings": 70,
+    "certificatedPostings": 24,
+    "newPostings": 12,
+    "expiredPostings": 246,
+    "byDistrict": {
+      "Federal Way": {
+        "total": 12,
+        "certificated": 2
+      },
+      "Renton": {
+        "total": 27,
+        "certificated": 3
+      },
+      "Auburn": {
+        "total": 16,
+        "certificated": 11
+      },
+      "Franklin Pierce": {
+        "total": 9,
+        "certificated": 2
+      },
+      "Fife": {
+        "total": 3,
+        "certificated": 3
+      },
+      "Tacoma": {
+        "total": 3,
+        "certificated": 3
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-23T23:55:40.731Z",
+    "duration": "36.7s",
+    "totalPostings": 63,
+    "certificatedPostings": 22,
+    "newPostings": 0,
+    "expiredPostings": 7,
+    "byDistrict": {
+      "Federal Way": {
+        "total": 12,
+        "certificated": 2
+      },
+      "Renton": {
+        "total": 27,
+        "certificated": 3
+      },
+      "Auburn": {
+        "total": 16,
+        "certificated": 11
+      },
+      "Franklin Pierce": {
+        "total": 2,
+        "certificated": 0
+      },
+      "Fife": {
+        "total": 3,
+        "certificated": 3
+      },
+      "Tacoma": {
+        "total": 3,
+        "certificated": 3
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-23T23:57:32.081Z",
+    "duration": "38.6s",
+    "totalPostings": 57,
+    "certificatedPostings": 22,
+    "newPostings": 0,
+    "expiredPostings": 6,
+    "byDistrict": {
+      "Federal Way": {
+        "total": 10,
+        "certificated": 2
+      },
+      "Renton": {
+        "total": 26,
+        "certificated": 3
+      },
+      "Auburn": {
+        "total": 15,
+        "certificated": 11
+      },
+      "Franklin Pierce": {
+        "total": 0,
+        "certificated": 0
+      },
+      "Fife": {
+        "total": 3,
+        "certificated": 3
+      },
+      "Tacoma": {
+        "total": 3,
+        "certificated": 3
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-24T02:58:51.884Z",
+    "duration": "40.4s",
+    "totalPostings": 57,
+    "certificatedPostings": 22,
+    "newPostings": 0,
+    "expiredPostings": 0,
+    "byDistrict": {
+      "Federal Way": {
+        "total": 10,
+        "certificated": 2
+      },
+      "Renton": {
+        "total": 26,
+        "certificated": 3
+      },
+      "Auburn": {
+        "total": 15,
+        "certificated": 11
+      },
+      "Franklin Pierce": {
+        "total": 0,
+        "certificated": 0
+      },
+      "Fife": {
+        "total": 3,
+        "certificated": 3
+      },
+      "Tacoma": {
+        "total": 3,
+        "certificated": 3
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-24T05:59:32.928Z",
+    "duration": "40.7s",
+    "totalPostings": 57,
+    "certificatedPostings": 22,
+    "newPostings": 0,
+    "expiredPostings": 0,
+    "byDistrict": {
+      "Federal Way": {
+        "total": 10,
+        "certificated": 2
+      },
+      "Renton": {
+        "total": 26,
+        "certificated": 3
+      },
+      "Auburn": {
+        "total": 15,
+        "certificated": 11
+      },
+      "Franklin Pierce": {
+        "total": 0,
+        "certificated": 0
+      },
+      "Fife": {
+        "total": 3,
+        "certificated": 3
+      },
+      "Tacoma": {
+        "total": 3,
+        "certificated": 3
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-24T09:00:14.336Z",
+    "duration": "44.3s",
+    "totalPostings": 57,
+    "certificatedPostings": 22,
+    "newPostings": 0,
+    "expiredPostings": 0,
+    "byDistrict": {
+      "Federal Way": {
+        "total": 10,
+        "certificated": 2
+      },
+      "Renton": {
+        "total": 26,
+        "certificated": 3
+      },
+      "Auburn": {
+        "total": 15,
+        "certificated": 11
+      },
+      "Franklin Pierce": {
+        "total": 0,
+        "certificated": 0
+      },
+      "Fife": {
+        "total": 3,
+        "certificated": 3
+      },
+      "Tacoma": {
+        "total": 3,
+        "certificated": 3
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-24T12:00:59.041Z",
+    "duration": "44.8s",
+    "totalPostings": 57,
+    "certificatedPostings": 22,
+    "newPostings": 0,
+    "expiredPostings": 0,
+    "byDistrict": {
+      "Federal Way": {
+        "total": 10,
+        "certificated": 2
+      },
+      "Renton": {
+        "total": 26,
+        "certificated": 3
+      },
+      "Auburn": {
+        "total": 15,
+        "certificated": 11
+      },
+      "Franklin Pierce": {
+        "total": 0,
+        "certificated": 0
+      },
+      "Fife": {
+        "total": 3,
+        "certificated": 3
+      },
+      "Tacoma": {
+        "total": 3,
+        "certificated": 3
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-24T15:13:52.378Z",
+    "duration": "44.0s",
+    "totalPostings": 57,
+    "certificatedPostings": 22,
+    "newPostings": 0,
+    "expiredPostings": 0,
+    "byDistrict": {
+      "Federal Way": {
+        "total": 10,
+        "certificated": 2
+      },
+      "Renton": {
+        "total": 26,
+        "certificated": 3
+      },
+      "Auburn": {
+        "total": 15,
+        "certificated": 11
+      },
+      "Franklin Pierce": {
+        "total": 0,
+        "certificated": 0
+      },
+      "Fife": {
+        "total": 3,
+        "certificated": 3
+      },
+      "Tacoma": {
+        "total": 3,
+        "certificated": 3
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-24T15:20:22.408Z",
+    "duration": "42.3s",
+    "totalPostings": 57,
+    "certificatedPostings": 22,
+    "newPostings": 0,
+    "expiredPostings": 0,
+    "byDistrict": {
+      "Federal Way": {
+        "total": 10,
+        "certificated": 2
+      },
+      "Renton": {
+        "total": 26,
+        "certificated": 3
+      },
+      "Auburn": {
+        "total": 15,
+        "certificated": 11
+      },
+      "Franklin Pierce": {
+        "total": 0,
+        "certificated": 0
+      },
+      "Fife": {
+        "total": 3,
+        "certificated": 3
+      },
+      "Tacoma": {
+        "total": 3,
+        "certificated": 3
+      }
+    }
+  }
+]
