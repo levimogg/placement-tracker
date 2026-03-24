@@ -2,4 +2,3 @@ node_modules/
 scraper-stdout.log
 scraper-stderr.log
 .DS_Store
-config.js
