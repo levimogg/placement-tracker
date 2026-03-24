@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Corps Member Tracker 2026–2027 — Teach For America Washington</title>
+  <title>Placement Dashboard — Teach For America Washington</title>
   <script>if(sessionStorage.getItem('auth')!=='1')window.location.replace('index.html');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -204,8 +204,8 @@
       <img src="./tfa-logo.svg" alt="Teach For America" class="header-logo">
       <div class="header-divider"></div>
       <div>
-        <div class="header-title">Corps Member Tracker 2026–2027</div>
-        <div class="header-subtitle">2025–2026 Placement Season</div>
+        <div class="header-title">Placement Dashboard</div>
+        <div class="header-subtitle">2026 Washington Corps</div>
       </div>
     </div>
     <div class="header-right">
@@ -227,7 +227,7 @@
     <div class="view active" id="view-jobs">
       <div class="table-wrap">
         <div class="table-head"><h2>Certificated Teaching Positions</h2><div class="filter-group" id="districtFilter"></div></div>
-        <table><thead><tr><th>Date</th><th>District</th><th>School</th><th>Position</th><th>Cert Area</th><th>Grade</th><th>Matched CMs</th><th>Status</th></tr></thead><tbody id="jobsBody"></tbody></table>
+        <table><thead><tr><th>Position</th><th>School</th><th>Cert / Grade</th><th>Matched CMs</th><th>Posted</th></tr></thead><tbody id="jobsBody"></tbody></table>
       </div>
     </div>
     <div class="view" id="view-corps">
@@ -247,7 +247,7 @@
 
   <div class="toast" id="toast"></div>
 
-  <div class="footer">Teach For America Washington &middot; Corps Member Tracker 2026–2027</div>
+  <div class="footer">Teach For America Washington &middot; Placement Dashboard &middot; 2026 Corps</div>
 
 <script type="module">
 import { MOCK_ROSTER, MOCK_POSTINGS, MOCK_ACTIVITY, STATUS_ORDER } from './src/data.js';
@@ -280,6 +280,14 @@ function csvParse(text) { const lines = text.split('\n').filter(l => l.trim()); 
 function csvLine(l) { const r=[]; let c='',q=false; for(let i=0;i<l.length;i++){const ch=l[i]; if(ch==='"'){if(q&&l[i+1]==='"'){c+='"';i++}else q=!q} else if(ch===','&&!q){r.push(c.trim());c=''}else c+=ch} r.push(c.trim()); return r; }
 async function loadRoster(){const d=await fetchTab('Corps Member Roster'); if(!d||!d.length)return null; return d.map(r=>({name:r['Name']||'',certAreas:(r['Cert Area(s)']||r['Cert Areas']||'').split(',').map(s=>s.trim()).filter(Boolean),gradeBand:r['Grade Band']||'',status:r['Status']||'Unplaced',districtTarget:r['Target District']||'',placedDistrict:r['Placed District']||'',placedSchool:r['Placed School']||'',email:r['Email']||'',phone:r['Phone']||'',resumeLink:r['Resume Link']||'',notes:r['Notes']||''})).filter(r=>r.name)}
 async function loadActivity(){const d=await fetchTab('Activity Log'); if(!d||!d.length)return null; return d.map(r=>({date:r['Date']||'',cmName:r['CM Name']||'',action:r['Action']||'',jobReference:r['Job Reference']||''})).filter(r=>r.cmName)}
+
+// === SHEET SYNC ===
+async function syncStatus(name, newStatus) {
+  if (!APPS_SCRIPT_URL) return;
+  try {
+    await fetch(APPS_SCRIPT_URL, { method: 'POST', body: JSON.stringify({ name, status: newStatus }), headers: { 'Content-Type': 'text/plain' } });
+  } catch(e) { console.warn('Sheet sync failed:', e); }
+}
 
 // === HELPERS ===
 function matchCMs(p,roster){return roster.filter(c=>c.status!=='Hired').filter(c=>{const cert=c.certAreas.some(a=>a===p.certArea||p.certArea==='General');const g=c.gradeBand===p.gradeLevel||p.gradeLevel==='Unknown';return cert&&g}).map(c=>c.name)}
@@ -347,7 +355,13 @@ async function init(){
   // === JOB BOARD ===
   let distF='All';
   function renderDF(){const c=document.getElementById('districtFilter');c.innerHTML=['All',...DISTRICTS].map(d=>`<button class="filter-btn ${distF===d?'active':''}" data-d="${d}">${d}</button>`).join('');c.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{distF=b.dataset.d;renderDF();renderJobs()}))}
-  function renderJobs(){const list=distF==='All'?POSTS:POSTS.filter(p=>p.district===distF);document.getElementById('jobsBody').innerHTML=list.map(p=>`<tr><td>${fmtDate(p.datePosted||p.dateScraped)}</td><td><strong>${p.district}</strong></td><td>${p.school||'—'}</td><td>${p.link&&p.link!=='#'?`<a href="${p.link}" target="_blank" class="link">${p.positionTitle}</a>`:p.positionTitle}</td><td>${p.certArea}</td><td>${p.gradeLevel}</td><td>${(p.matchedCMs||[]).length>0?p.matchedCMs.map(n=>`<span class="cm-tag" data-cm="${n}">${n}</span>`).join(''):'<span style="color:var(--stone);font-size:10px">—</span>'}</td><td><span class="status status-${(p.status||'active').toLowerCase()}">${p.status||'Active'}</span></td></tr>`).join('');document.querySelectorAll('#jobsBody .cm-tag[data-cm]').forEach(el=>el.addEventListener('click',()=>openDetail(el.dataset.cm)))}
+  function renderJobs(){const list=distF==='All'?POSTS:POSTS.filter(p=>p.district===distF);document.getElementById('jobsBody').innerHTML=list.map(p=>`<tr>
+      <td>${p.link&&p.link!=='#'?`<a href="${p.link}" target="_blank" class="link">${p.positionTitle}</a>`:p.positionTitle}<br><span style="font-size:10px;color:var(--stone)">${p.district}</span></td>
+      <td>${p.school||'—'}</td>
+      <td><span class="status status-${p.certArea.toLowerCase().replace(/[^a-z]/g,'')}" style="font-size:10px">${p.certArea}</span><br><span style="font-size:10px;color:var(--stone)">${p.gradeLevel}</span></td>
+      <td>${(p.matchedCMs||[]).length>0?p.matchedCMs.map(n=>`<span class="cm-tag" data-cm="${n}">${n}</span>`).join(''):'<span style="color:var(--stone);font-size:10px">—</span>'}</td>
+      <td style="font-size:11px;color:var(--stone)">${fmtDate(p.datePosted||p.dateScraped)}</td>
+    </tr>`).join('');document.querySelectorAll('#jobsBody .cm-tag[data-cm]').forEach(el=>el.addEventListener('click',()=>openDetail(el.dataset.cm)))}
 
   // === KANBAN ===
   document.getElementById('corpsBanner').innerHTML=demo;
@@ -372,7 +386,7 @@ async function init(){
     document.querySelectorAll('.kanban-col').forEach(col=>{
       col.addEventListener('dragover',e=>{e.preventDefault();e.dataTransfer.dropEffect='move';col.classList.add('drag-over')});
       col.addEventListener('dragleave',()=>col.classList.remove('drag-over'));
-      col.addEventListener('drop',e=>{e.preventDefault();col.classList.remove('drag-over');const name=e.dataTransfer.getData('text/plain');const newStatus=col.dataset.status;const cm=ROSTER.find(r=>r.name===name);if(cm&&cm.status!==newStatus){cm.status=newStatus;renderK();renderGoalAndVelocity();showToast(`Moved ${name} → ${newStatus} — update Google Sheet to save`)}});
+      col.addEventListener('drop',e=>{e.preventDefault();col.classList.remove('drag-over');const name=e.dataTransfer.getData('text/plain');const newStatus=col.dataset.status;const cm=ROSTER.find(r=>r.name===name);if(cm&&cm.status!==newStatus){cm.status=newStatus;renderK();renderGoalAndVelocity();syncStatus(name,newStatus);showToast(`Moved ${name} → ${newStatus}`)}});
     });
   }
 
@@ -418,7 +432,7 @@ async function init(){
         ${history.length===0?'<div style="font-size:11px;color:var(--stone)">No activity yet.</div>':`<ul class="detail-timeline">${history.map(a=>`<li><span class="tl-date">${fmtDate(a.date)}</span><span class="tl-action">${a.action}</span><span>${a.jobReference}</span></li>`).join('')}</ul>`}
       </div>`;
 
-    document.getElementById('detailStatusSel').addEventListener('change',e=>{const ns=e.target.value;if(cm.status!==ns){cm.status=ns;document.getElementById('detailStatus').innerHTML=`<span class="status status-${ns.toLowerCase()}">${ns}</span>`;renderK();renderGoalAndVelocity();showToast(`${cm.name} → ${ns} — update Google Sheet to save`)}});
+    document.getElementById('detailStatusSel').addEventListener('change',e=>{const ns=e.target.value;if(cm.status!==ns){cm.status=ns;document.getElementById('detailStatus').innerHTML=`<span class="status status-${ns.toLowerCase()}">${ns}</span>`;renderK();renderGoalAndVelocity();syncStatus(cm.name,ns);showToast(`${cm.name} → ${ns}`)}});
   }
 
   // === DISTRICTS ===
