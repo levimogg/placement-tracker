@@ -191,6 +191,25 @@
       "dateFirstSeen": "2026-03-23"
     },
     {
+      "id": "federalway-12728",
+      "district": "Federal Way",
+      "county": "King",
+      "positionTitle": "Executive Director of Safety, Security, and Risk Management",
+      "school": "Educational Service Center",
+      "positionType": "Leadership/",
+      "isCertificated": false,
+      "certArea": "English/LA",
+      "gradeLevel": "Unknown",
+      "link": "https://www.applitrack.com/federalway/OnlineApp/JobPostings/view.asp?all=1&AppliTrackJobId=12728&AppliTrackLayoutMode=detail&AppliTrackViewPosting=1",
+      "datePosted": "3/24/2026",
+      "closingDate": "Until filled",
+      "dateScraped": "2026-03-24",
+      "platform": "AppliTrack",
+      "status": "Active",
+      "isExternal": true,
+      "dateFirstSeen": "2026-03-24"
+    },
+    {
       "id": "rentonschools-12539",
       "district": "Renton",
       "county": "King",
@@ -297,25 +316,6 @@
       "gradeLevel": "Unknown",
       "link": "https://www.applitrack.com/rentonschools/OnlineApp/JobPostings/view.asp?all=1&AppliTrackJobId=12335&AppliTrackLayoutMode=detail&AppliTrackViewPosting=1",
       "datePosted": "9/10/2025",
-      "closingDate": "",
-      "dateScraped": "2026-03-24",
-      "platform": "AppliTrack",
-      "status": "Active",
-      "isExternal": true,
-      "dateFirstSeen": "2026-03-23"
-    },
-    {
-      "id": "rentonschools-12538",
-      "district": "Renton",
-      "county": "King",
-      "positionTitle": "Field Support Specialist - Temporary",
-      "school": "Kohlwes Education Center",
-      "positionType": "Classified/",
-      "isCertificated": false,
-      "certArea": "General",
-      "gradeLevel": "Unknown",
-      "link": "https://www.applitrack.com/rentonschools/OnlineApp/JobPostings/view.asp?all=1&AppliTrackJobId=12538&AppliTrackLayoutMode=detail&AppliTrackViewPosting=1",
-      "datePosted": "3/9/2026",
       "closingDate": "",
       "dateScraped": "2026-03-24",
       "platform": "AppliTrack",
@@ -1084,19 +1084,19 @@
       "dateFirstSeen": "2026-03-23"
     }
   ],
-  "lastScrape": "2026-03-24T15:20:22.408Z",
+  "lastScrape": "2026-03-24T19:23:33.661Z",
   "stats": {
     "totalAll": 57,
     "totalCertificated": 22,
-    "newThisScrape": 0,
+    "newThisScrape": 1,
     "expiredThisScrape": 0,
     "byDistrict": {
       "Federal Way": {
-        "total": 10,
+        "total": 11,
         "certificated": 2
       },
       "Renton": {
-        "total": 26,
+        "total": 25,
         "certificated": 3
       },
       "Auburn": {
@@ -1207,6 +1207,27 @@
       "totalFound": 57,
       "certificated": 22,
       "newPostings": 0,
+      "expired": 0
+    },
+    {
+      "timestamp": "2026-03-24T16:23:22.303Z",
+      "totalFound": 56,
+      "certificated": 22,
+      "newPostings": 0,
+      "expired": 1
+    },
+    {
+      "timestamp": "2026-03-24T18:14:37.092Z",
+      "totalFound": 56,
+      "certificated": 22,
+      "newPostings": 0,
+      "expired": 0
+    },
+    {
+      "timestamp": "2026-03-24T19:23:33.661Z",
+      "totalFound": 57,
+      "certificated": 22,
+      "newPostings": 1,
       "expired": 0
     }
   ]
