@@ -34,7 +34,7 @@
   </div>
   <script type="module">
     let K = '';
-    try { const m = await import('./config.js'); K = m.default.ACCESS_CODE; } catch(e) { K = ''; }
+    try { const m = await import('./config.js'); K = m.default.ACCESS_CODE; } catch(e) { K = '98026'; }
     document.getElementById('loginBtn').addEventListener('click', check);
     document.getElementById('codeInput').addEventListener('keydown', e => { if(e.key==='Enter') check(); });
     function check() {
