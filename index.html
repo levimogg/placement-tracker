@@ -32,24 +32,20 @@
     <button class="login-btn" id="loginBtn">Enter</button>
     <div class="login-error" id="loginError"></div>
   </div>
-  <script type="module">
-    let K = '';
-    try { const m = await import('./config.js'); K = m.default.ACCESS_CODE; } catch(e) { K = '98026'; }
+  <script>
+    if (sessionStorage.getItem('auth')==='1') window.location.replace('app.html');
     document.getElementById('loginBtn').addEventListener('click', check);
-    document.getElementById('codeInput').addEventListener('keydown', e => { if(e.key==='Enter') check(); });
+    document.getElementById('codeInput').addEventListener('keydown', function(e) { if(e.key==='Enter') check(); });
     function check() {
-      const v = document.getElementById('codeInput').value;
-      if (v === K) {
+      if (document.getElementById('codeInput').value === '98026') {
         sessionStorage.setItem('auth','1');
         window.location.href = 'app.html';
       } else {
         document.getElementById('codeInput').classList.add('error');
         document.getElementById('loginError').textContent = 'Invalid code';
-        setTimeout(() => document.getElementById('codeInput').classList.remove('error'), 400);
+        setTimeout(function() { document.getElementById('codeInput').classList.remove('error'); }, 400);
       }
     }
-    // Only redirect if on this page (not app.html)
-    if (sessionStorage.getItem('auth')==='1' && window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) window.location.replace('app.html');
   </script>
 </body>
 </html>
